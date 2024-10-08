@@ -4,10 +4,9 @@
 compdef _nse-complete nse-help
 compdef _nse-complete nse-show
 
-local nmap_script_path="/usr/share/nmap/scripts/"
 
 _nse-complete() {
-    _arguments "1: :_files -W $nmap_script_path"
+ _arguments "1: :_files -W /usr/share/nmap/scripts/"
 }
 
 
@@ -23,7 +22,7 @@ nse-help() {
 nse-show() {
     if [ -n "$1" ];
     then
-        more "$nmap_script_path/$1"
+        more "/usr/share/nmap/scripts/"$1
     else
         echo "nmap-show <script-name>.nse"
     fi
